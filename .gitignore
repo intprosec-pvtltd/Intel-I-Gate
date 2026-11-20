@@ -1,0 +1,47 @@
+.venv/
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+backend/storage/*
+backend/ai_models/*
+!backend/ai_models/bytetrack.yaml
+!backend/ai_models/README.md
+test-results/
+playwright-report/
+
+# Python virtual environments
+venv/
+**/venv/
+
+# Environment secrets
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+
+# Dependencies and generated output
+**/node_modules/
+**/__pycache__/
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# AI model weights
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Backup archives
+backend.zip
+frontend.zip
+*.7z
+
+# Local uploaded media
+uploads/

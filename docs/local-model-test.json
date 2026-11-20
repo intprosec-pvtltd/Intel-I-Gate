@@ -1,0 +1,19 @@
+{
+  "face_models": "PASS",
+  "scope": "Smoke inference; no labeled accuracy measurement",
+  "latencies_ms": {
+    "yolo_ms": {
+      "mean": 39674.21,
+      "samples": 1
+    },
+    "yunet_sface_ms": {
+      "mean": 0.26,
+      "samples": 1
+    }
+  },
+  "rss_mb": 507.2,
+  "cuda_allocated_mb": 826.0,
+  "delivery_error": null,
+  "delivery_state": "READY",
+  "delivery_ms": 81015.0
+}

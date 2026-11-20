@@ -1,0 +1,28 @@
+{
+  "scope": "Isolated actual-model video integration test; not CCTV accuracy or PostgreSQL validation",
+  "pending_events": 4,
+  "snapshots": 0,
+  "guard_save": "PASS",
+  "historical_timestamp_preserved": true,
+  "job": "COMPLETED",
+  "elapsed_seconds": 8.63,
+  "metrics": {
+    "latencies_ms": {
+      "yolo_ms": {
+        "mean": 309.56,
+        "samples": 2
+      },
+      "yunet_sface_ms": {
+        "mean": 33.87,
+        "samples": 2
+      },
+      "dino_ms": {
+        "mean": 4159.89,
+        "samples": 1
+      }
+    },
+    "rss_mb": 1789.5,
+    "cuda_allocated_mb": null,
+    "delivery_error": null
+  }
+}

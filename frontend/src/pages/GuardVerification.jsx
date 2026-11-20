@@ -1,0 +1,17 @@
+import {useParams,useNavigate,Link} from 'react-router-dom';
+import {api} from '../services/api';
+import GuardVerificationForm from '../components/GuardVerificationForm';
+import ResidentEnrollment from '../components/ResidentEnrollment';
+import ManualFaceCapture from '../components/ManualFaceCapture';
+import VisitTiming from '../components/VisitTiming';
+import {Title,Button,Notice,Time,FaceSnapshot,useData,useAction} from '../components/ui';
+export default function GuardVerification(){
+ const {id}=useParams(),nav=useNavigate(),d=useData(`/events/${id}`,2000),r=useData('/residents'),a=useAction(),e=d.data?.id===id?d.data:null;
+ const editable=e&&e.test_role!=='exit'&&['PENDING_VERIFICATION','NEEDS_REVIEW','CONFIRMED'].includes(e.state);
+ return <><Title title={e?.test_role==='exit'?'Review test departure':'Review visitor'} actions={<Link to="/pending">← Visitor queue</Link>}>Save the photo, confirm the destination and obtain resident approval.</Title><Notice>{a.error||d.error||r.error}</Notice>{e&&<>
+ {e.test_role&&<div className="test-mode-banner"><b>{e.test_role.toUpperCase()} VIDEO · TEST ONLY</b><span>This recording does not change live occupancy.</span></div>}
+ <div className="review-layout"><aside className="panel evidence"><h2>Visitor photo</h2><FaceSnapshot id={e.snapshot_id} reason={e.face_reason}/><p className={e.snapshot_id?'success-text':'muted'}>{e.snapshot_id?'Photo saved':'No photo captured yet'}</p>
+ {e.camera_id&&!e.video_id&&(editable||e.state==='ENTRY_RECORDED')&&<ManualFaceCapture key={e.id} event={e} onSaved={d.refresh}/>}
+ <div className="photo-source"><b>{e.camera_name}</b><small>{e.video_id?`Video position +${Number(e.frame_seconds||0).toFixed(1)}s`:<Time value={e.captured_at}/>}</small></div></aside>
+ <section className="panel"><VisitTiming timing={e.visit_timing}/>{(e.test_role==='exit'||e.state==='EXIT_REVIEW'||e.state==='EXIT_CONFIRMED')?<><h2>{e.state==='EXIT_CONFIRMED'?'Exit confirmed':'Exit observation'}</h2><p className="muted">Automatic matching is handled by the exit camera when enabled. Open Visit history for the saved visit or to review an unresolved departure. A new entry is not required.</p><Link className="btn primary" to="/history">Open exit history →</Link></>:editable?<><ol className="workflow-steps guard-progress"><li>Capture photo</li><li>Select destination</li><li>Resident OTP</li><li>Confirm and save</li></ol>{!e.video_id&&<ResidentEnrollment event={e} residents={r.data||[]} onSaved={()=>nav('/pending')}/>}<GuardVerificationForm key={e.id} event={e} residents={r.data||[]} onSaved={()=>nav('/history')}/><div className="actions review-secondary">{[['reject','Not this visit'],['review','Review later'],['cancel','Cancel candidate']].map(([action,label])=><Button key={action} variant={action==='reject'?'danger':'ghost'} busy={a.busy} onClick={()=>a.run(async()=>{await api.post(`/events/${id}/${action}`);nav('/pending');},({reject:'Visit rejected',review:'Visit marked for review',cancel:'Visitor observation cancelled'})[action])}>{label}</Button>)}</div></>:<><h2>{e.state==='ENTRY_RECORDED'?'Visit saved':e.state==='COMPLETED'?'Visit completed':'Visit reviewed'}</h2><p className="muted">{e.verification?.flat&&`Destination: ${e.verification.flat}. `}{e.verification?.visitor_name&&`Visitor: ${e.verification.visitor_name}.`}</p><Link to={e.visit_timing?.visit_id?`/visits/${e.visit_timing.visit_id}`:"/history"}>Open visitor details →</Link></>}</section></div></>}</>;
+}

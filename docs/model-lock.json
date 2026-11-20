@@ -1,0 +1,69 @@
+{
+  "revisions": {
+    "opencv_zoo": "48b10fa505aeb51fbd127fc60a5c660040e823b7",
+    "ultralytics_assets": "v8.3.0",
+    "grounding_dino": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+  },
+  "files": {
+    "face_detection_yunet_2023mar.onnx": {
+      "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+      "bytes": 232589,
+      "source": "https://media.githubusercontent.com/media/opencv/opencv_zoo/48b10fa505aeb51fbd127fc60a5c660040e823b7/models/face_detection_yunet/face_detection_yunet_2023mar.onnx"
+    },
+    "face_recognition_sface_2021dec.onnx": {
+      "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+      "bytes": 38696353,
+      "source": "https://media.githubusercontent.com/media/opencv/opencv_zoo/48b10fa505aeb51fbd127fc60a5c660040e823b7/models/face_recognition_sface/face_recognition_sface_2021dec.onnx"
+    },
+    "yolov8m.pt": {
+      "sha256": "5d4a90cdc7a21786cc59cd19778e9eafff836df9e2da32524737c7ee6efe4fe5",
+      "bytes": 52136884,
+      "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8m.pt"
+    },
+    "grounding_dino_tiny/README.md": {
+      "sha256": "cf46f74c7b6850f1d5cbe406028324d8798148726016d46a69a365b4a2d3e89f",
+      "bytes": 2580,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/vocab.txt": {
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/added_tokens.json": {
+      "sha256": "909e96cb32d92ce728a01bc99850cbba26196d74115c17ebeb019275412588f2",
+      "bytes": 82,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/tokenizer.json": {
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "bytes": 711396,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/config.json": {
+      "sha256": "eec82c5ab66e16df12a9a212e68ac011779927c2536cf9078658e35d85f0c67a",
+      "bytes": 1644,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/tokenizer_config.json": {
+      "sha256": "d40ab645b68211910b9170d22433d43186a6ec8ee6fd10ba170524b25bf4fb56",
+      "bytes": 1237,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/preprocessor_config.json": {
+      "sha256": "8454179ba95e2ad22947835aad7b45862a601fc0055ab88bf1ee70892d3aea60",
+      "bytes": 457,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/special_tokens_map.json": {
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "bytes": 125,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    },
+    "grounding_dino_tiny/model.safetensors": {
+      "sha256": "1a2412ef99bd74bcd3c2a246fa1e48581f8889a1300c9051974741314fc042f3",
+      "bytes": 689359096,
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71"
+    }
+  }
+}

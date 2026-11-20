@@ -1,0 +1,14 @@
+{
+  "scope": "OpenCV public sample image, isolated face capture and embedding test; not recognition accuracy",
+  "usable_faces": 1,
+  "jpeg_bytes": 11603,
+  "embedding_dimensions": 128,
+  "metrics": {
+    "sharpness": 539.5811684740211,
+    "brightness": 126.8567268876977,
+    "clipping": 0.0,
+    "pose_proxy": 0.2874535866679172,
+    "tilt_proxy": 0.11622103001817104,
+    "confidence": 0.9089785814285278
+  }
+}
